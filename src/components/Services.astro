@@ -1,0 +1,56 @@
+---
+// Services.astro
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: "Desarrollo Web",
+    description: "Creación de sitios web a medida con tecnologías modernas y responsive design.",
+    icon: "💻",
+    features: ["Landing Pages", "Sitios Corporativos", "Tiendas Online"]
+  },
+  {
+    title: "Mantenimiento",
+    description: "Soporte técnico especializado para equipos y redes empresariales.",
+    icon: "🔧",
+    features: ["Preventivo", "Correctivo", "Actualizaciones"]
+  },
+  {
+    title: "Marketing Digital",
+    description: "Estrategias digitales para aumentar tu presencia en línea.",
+    icon: "📈",
+    features: ["SEO", "Redes Sociales", "Publicidad Online"]
+  }
+];
+---
+
+<Layout title="Nuestros Servicios | MF-TECHSOFT">
+  <section class="bg-gray-100 py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <!-- Encabezado -->
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+          Nuestros <span class="text-accent-500">Servicios</span>
+        </h2>
+        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+          Soluciones tecnológicas diseñadas para impulsar tu negocio en el mundo digital
+        </p>
+      </div>
+
+      <!-- Grid de Servicios -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16">
+        <a href="/contacto" class="bg-accent-500 hover:bg-accent-400 text-white px-8 py-3 rounded-lg text-lg font-medium transition duration-300 inline-block">
+          Solicitar Presupuesto
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
