@@ -1,0 +1,389 @@
+---
+// Proyectos.astro
+import Layout from '../layouts/Layout.astro';
+
+// Datos de proyectos de ejemplo
+const proyectos = [
+  {
+    id: 1,
+    titulo: "E-commerce Tecnológico",
+    descripcion: "Plataforma de comercio electrónico completa con sistema de inventario, pagos integrados y panel administrativo avanzado.",
+    imagen: "/images/proyecto-ecommerce.jpg",
+    tecnologias: ["React", "Node.js", "MongoDB", "Stripe"],
+    categoria: "ecommerce",
+    cliente: "TechStore SA",
+    fecha: "2024",
+    estado: "completado",
+    url: "https://techstore-demo.com",
+    repositorio: "https://github.com/mf-tecsoft/ecommerce-tech"
+  },
+  {
+    id: 2,
+    titulo: "App Móvil de Fitness",
+    descripcion: "Aplicación móvil para seguimiento de ejercicios, rutinas personalizadas y comunidad de usuarios con gamificación.",
+    imagen: "/images/proyecto-fitness.jpg",
+    tecnologias: ["React Native", "Firebase", "Redux", "Expo"],
+    categoria: "movil",
+    cliente: "FitLife Gym",
+    fecha: "2024",
+    estado: "completado",
+    url: "https://fitlife-app.com",
+    repositorio: "https://github.com/mf-tecsoft/fitness-app"
+  },
+  {
+    id: 3,
+    titulo: "Sistema de Gestión Empresarial",
+    descripcion: "ERP completo para pequeñas y medianas empresas con módulos de contabilidad, inventario, CRM y reportes avanzados.",
+    imagen: "/images/proyecto-erp.jpg",
+    tecnologias: ["Vue.js", "Laravel", "PostgreSQL", "Docker"],
+    categoria: "web",
+    cliente: "Empresas Unidas",
+    fecha: "2023",
+    estado: "completado",
+    url: "https://erp-empresas.com",
+    repositorio: null
+  },
+  {
+    id: 4,
+    titulo: "Plataforma de Aprendizaje Online",
+    descripcion: "LMS moderno con videoconferencias, evaluaciones automáticas, gamificación y seguimiento detallado del progreso estudiantil.",
+    imagen: "/images/proyecto-lms.jpg",
+    tecnologias: ["Next.js", "Prisma", "WebRTC", "AWS"],
+    categoria: "web",
+    cliente: "EduTech Institute",
+    fecha: "2024",
+    estado: "en-desarrollo",
+    url: null,
+    repositorio: null
+  },
+  {
+    id: 5,
+    titulo: "App de Delivery Inteligente",
+    descripcion: "Aplicación de delivery con seguimiento en tiempo real, optimización de rutas con IA y sistema de calificaciones avanzado.",
+    imagen: "/images/proyecto-delivery.jpg",
+    tecnologias: ["Flutter", "Python", "TensorFlow", "Google Maps"],
+    categoria: "movil",
+    cliente: "QuickFood",
+    fecha: "2024",
+    estado: "en-desarrollo",
+    url: null,
+    repositorio: null
+  },
+  {
+    id: 6,
+    titulo: "Dashboard de Analytics",
+    descripcion: "Panel de control avanzado para análisis de datos empresariales con visualizaciones interactivas y reportes automatizados.",
+    imagen: "/images/proyecto-dashboard.jpg",
+    tecnologias: ["Angular", "D3.js", "Python", "ElasticSearch"],
+    categoria: "web",
+    cliente: "DataCorp",
+    fecha: "2023",
+    estado: "completado",
+    url: "https://analytics-datacorp.com",
+    repositorio: null
+  }
+];
+
+const categorias = [
+  { id: "todos", nombre: "Todos los Proyectos", icono: "grid" },
+  { id: "web", nombre: "Desarrollo Web", icono: "globe" },
+  { id: "movil", nombre: "Apps Móviles", icono: "smartphone" },
+  { id: "ecommerce", nombre: "E-commerce", icono: "shopping-cart" }
+];
+
+const tecnologias = [...new Set(proyectos.flatMap(p => p.tecnologias))].sort();
+---
+
+<Layout title="Proyectos - Teyco">
+  <main class="min-h-screen bg-gray-50">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary-900 to-primary-600 text-white py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-4xl mx-auto">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            Nuestros <span class="text-accent-300">Proyectos</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-200 mb-8">
+            Descubre las soluciones tecnológicas que hemos desarrollado para transformar negocios y crear experiencias digitales excepcionales.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 text-sm">
+            <span class="bg-primary-700 px-4 py-2 rounded-full">+50 Proyectos Completados</span>
+            <span class="bg-primary-700 px-4 py-2 rounded-full">98% Satisfacción del Cliente</span>
+            <span class="bg-primary-700 px-4 py-2 rounded-full">5 Años de Experiencia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="py-12 bg-white border-b">
+      <div class="container mx-auto px-4">
+        <!-- Filtros por categoría -->
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Filtrar por Categoría</h2>
+          <div class="flex flex-wrap justify-center gap-4" id="category-filters">
+            {categorias.map((categoria) => (
+              <button 
+                class="filter-btn bg-white border-2 border-primary-200 text-primary-700 px-6 py-3 rounded-lg hover:bg-primary-50 transition duration-200 flex items-center space-x-2 active"
+                data-category={categoria.id}
+              >
+                <div class="w-5 h-5">
+                  {categoria.icono === "grid" && (
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"/>
+                    </svg>
+                  )}
+                  {categoria.icono === "globe" && (
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                    </svg>
+                  )}
+                  {categoria.icono === "smartphone" && (
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a1 1 0 001-1V4a1 1 0 00-1-1H8a1 1 0 00-1 1v16a1 1 0 001 1z"/>
+                    </svg>
+                  )}
+                  {categoria.icono === "shopping-cart" && (
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"/>
+                    </svg>
+                  )}
+                </div>
+                <span>{categoria.nombre}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Filtro por tecnología -->
+        <div class="text-center">
+          <h3 class="text-lg font-semibold text-gray-700 mb-4">Tecnologías</h3>
+          <div class="flex flex-wrap justify-center gap-2" id="tech-filters">
+            {tecnologias.map((tech) => (
+              <button 
+                class="tech-filter bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm hover:bg-accent-100 hover:text-accent-700 transition duration-200"
+                data-tech={tech}
+              >
+                {tech}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid de Proyectos -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+          {proyectos.map((proyecto) => (
+            <article 
+              class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2"
+              data-category={proyecto.categoria}
+              data-techs={proyecto.tecnologias.join(',')}
+            >
+              <!-- Imagen del proyecto -->
+              <div class="relative h-48 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center">
+                <div class="text-primary-400 text-6xl opacity-20">
+                  <span class="text-accent-400">{`</>`}</span>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class={`px-3 py-1 rounded-full text-xs font-medium ${
+                    proyecto.estado === 'completado' 
+                      ? 'bg-green-100 text-green-800' 
+                      : 'bg-yellow-100 text-yellow-800'
+                  }`}>
+                    {proyecto.estado === 'completado' ? 'Completado' : 'En Desarrollo'}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Contenido -->
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">{proyecto.titulo}</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">{proyecto.descripcion}</p>
+                
+                <!-- Cliente y fecha -->
+                <div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+                  <span>Cliente: <strong>{proyecto.cliente}</strong></span>
+                  <span>{proyecto.fecha}</span>
+                </div>
+
+                <!-- Tecnologías -->
+                <div class="mb-4">
+                  <div class="flex flex-wrap gap-2">
+                    {proyecto.tecnologias.map((tech) => (
+                      <span class="bg-primary-50 text-primary-700 px-2 py-1 rounded text-xs font-medium">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Enlaces -->
+                <div class="flex space-x-3">
+                  {proyecto.url && (
+                    <a 
+                      href={proyecto.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="flex-1 bg-accent-500 hover:bg-accent-400 text-white px-4 py-2 rounded-lg text-center text-sm transition duration-200"
+                    >
+                      Ver Demo
+                    </a>
+                  )}
+                  {proyecto.repositorio && (
+                    <a 
+                      href={proyecto.repositorio} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-center text-sm transition duration-200"
+                    >
+                      Código
+                    </a>
+                  )}
+                  <button class="bg-primary-100 hover:bg-primary-200 text-primary-700 px-4 py-2 rounded-lg text-sm transition duration-200">
+                    Detalles
+                  </button>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- Mensaje sin resultados -->
+        <div id="no-results" class="hidden text-center py-16">
+          <div class="text-gray-400 text-6xl mb-4">🔍</div>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron proyectos</h3>
+          <p class="text-gray-500">Intenta con otros filtros o tecnologías</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-primary-900 to-primary-600 text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          ¿Tienes un proyecto en mente?
+        </h2>
+        <p class="text-xl mb-8 text-gray-200">
+          Convierte tu idea en realidad con nuestro equipo de expertos
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/contacto" 
+            class="bg-accent-500 hover:bg-accent-400 px-8 py-3 rounded-lg font-semibold transition duration-200"
+          >
+            Solicitar Presupuesto
+          </a>
+          <a 
+            href="/servicios" 
+            class="bg-transparent border-2 border-white hover:bg-white hover:text-primary-900 px-8 py-3 rounded-lg font-semibold transition duration-200"
+          >
+            Ver Servicios
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Funcionalidad de filtros
+    document.addEventListener('DOMContentLoaded', function() {
+      const categoryButtons = document.querySelectorAll('[data-category]');
+      const techButtons = document.querySelectorAll('[data-tech]');
+      const projectCards = document.querySelectorAll('.project-card');
+      const noResults = document.getElementById('no-results');
+      
+      let activeCategory = 'todos';
+      let activeTechs = new Set();
+
+      // Filtro por categoría
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remover clase active de todos los botones
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('bg-primary-600', 'text-white', 'active');
+            btn.classList.add('bg-white', 'border-primary-200', 'text-primary-700');
+          });
+          
+          // Agregar clase active al botón clickeado
+          this.classList.remove('bg-white', 'border-primary-200', 'text-primary-700');
+          this.classList.add('bg-primary-600', 'text-white', 'active');
+          
+          activeCategory = this.dataset.category;
+          filterProjects();
+        });
+      });
+
+      // Filtro por tecnología
+      techButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const tech = this.dataset.tech;
+          
+          if (activeTechs.has(tech)) {
+            activeTechs.delete(tech);
+            this.classList.remove('bg-accent-500', 'text-white');
+            this.classList.add('bg-gray-100', 'text-gray-600');
+          } else {
+            activeTechs.add(tech);
+            this.classList.remove('bg-gray-100', 'text-gray-600');
+            this.classList.add('bg-accent-500', 'text-white');
+          }
+          
+          filterProjects();
+        });
+      });
+
+      function filterProjects() {
+        let visibleCount = 0;
+        
+        projectCards.forEach(card => {
+          const cardCategory = card.dataset.category;
+          const cardTechs = card.dataset.techs.split(',');
+          
+          let categoryMatch = activeCategory === 'todos' || cardCategory === activeCategory;
+          let techMatch = activeTechs.size === 0 || [...activeTechs].some(tech => cardTechs.includes(tech));
+          
+          if (categoryMatch && techMatch) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeIn 0.5s ease-in-out';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Mostrar/ocultar mensaje de sin resultados
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+
+      // Establecer filtro inicial
+      filterProjects();
+    });
+  </script>
+
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</Layout>

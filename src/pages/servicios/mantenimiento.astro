@@ -1,0 +1,252 @@
+---
+// pages/servicios/mantenimiento.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Mantenimiento de Computadoras">
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="flex justify-center items-center gap-4 mb-6">
+            <span class="text-6xl">🚀</span>
+            <span class="text-6xl">✨</span>
+            <span class="text-6xl">💻</span>
+          </div>
+         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Servicio de <span class="text-accent-500">Mantenimiento</span>
+        </h2>
+          <p class="text-xl md:text-2xl leading-relaxed">
+            ¿Tu computadora está lenta, necesita mantenimiento o dejó de funcionar? 
+            <br>
+            <span class="font-semibold">No te preocupes, estamos aquí para ayudarte.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl font-bold text-center text-primary-900 mb-12">
+            En Teyco ofrecemos los servicios de:
+          </h2>
+
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Diagnóstico -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-accent-500">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-primary-900">Diagnóstico</h3>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Vamos a su domicilio y examinamos el problema que tenga su equipo para repararlo. Si no podemos solucionar el problema, el costo es gratis.
+              </p>
+              <div class="bg-accent-50 rounded-lg p-4">
+                <span class="text-2xl font-bold text-accent-600">$200</span>
+                <span class="text-gray-600 ml-2">pesos</span>
+              </div>
+            </div>
+
+            <!-- Cambio de Componentes -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-primary-500">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-primary-900">Cambio de Componentes</h3>
+              </div>
+              <p class="text-gray-700 mb-4">
+                En base al diagnóstico corroboramos que es la falla y si necesita cambiarse algún componente. Lo llevamos a nuestro lugar de trabajo y se lo entregamos sin fallas.
+              </p>
+              <div class="bg-primary-50 rounded-lg p-4">
+                <span class="text-2xl font-bold text-primary-600">$200</span>
+                <span class="text-gray-600 ml-2">+ costo de piezas</span>
+              </div>
+            </div>
+
+            <!-- Presupuesto PC -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-primary-900">Presupuesto de PC</h3>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Si quiere realizar una selección de piezas para tener su computadora, nosotros le seleccionamos los componentes que más le convengan según su actividad y presupuesto.
+              </p>
+              <div class="bg-green-50 rounded-lg p-4">
+                <span class="text-2xl font-bold text-green-600">$150</span>
+                <span class="text-gray-600 ml-2">pesos</span>
+                <div class="text-sm text-green-700 mt-1">Solo transferencia</div>
+              </div>
+            </div>
+
+            <!-- Ensamble PC -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-primary-900">Ensamble de PC</h3>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Si ya tiene sus componentes pero no sabe o no quiere armar su computadora, nosotros se la armamos y se la entregamos funcionando perfectamente.
+              </p>
+              <div class="bg-purple-50 rounded-lg p-4">
+                <span class="text-2xl font-bold text-purple-600">$500</span>
+                <span class="text-gray-600 ml-2">pesos</span>
+              </div>
+            </div>
+
+            <!-- Mantenimiento PC Escritorio -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-primary-900">Mantenimiento PC Escritorio</h3>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Si su computadora se calienta mucho, tiene mucho polvo y va lento, necesita un mantenimiento. La recogemos, la alineamos y se la entregamos a su casa.
+              </p>
+              <div class="space-y-3">
+                <div class="bg-blue-50 rounded-lg p-4">
+                  <span class="text-2xl font-bold text-blue-600">$400</span>
+                  <span class="text-gray-600 ml-2">pesos</span>
+                </div>
+                <div class="bg-orange-50 rounded-lg p-3 border border-orange-200">
+                  <div class="text-sm font-semibold text-orange-700 mb-1">Opcional:</div>
+                  <div class="text-sm text-orange-600">
+                    Cambio de pasta térmica de gráfica: <span class="font-bold">+$100</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mantenimiento Laptop -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-teal-500">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-primary-900">Mantenimiento Laptop</h3>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Mantenimiento completo para mejorar estética, temperatura, velocidad y eficiencia. La recogemos, la alineamos y se la entregamos a su casa.
+              </p>
+              <div class="bg-teal-50 rounded-lg p-4">
+                <span class="text-2xl font-bold text-teal-600">$499</span>
+                <span class="text-gray-600 ml-2">pesos</span>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- Métodos de Pago -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-primary-500 mb-8">Métodos de Pago</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-8">
+              <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Efectivo</h3>
+              <p>Pago directo en efectivo</p>
+            </div>
+            <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl p-8">
+              <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Transferencia</h3>
+              <p>Transferencia bancaria</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8">¿Listo para mejorar tu equipo?</h2>
+        <p class="text-xl mb-8">
+          Si tiene alguna duda, gusta realizar alguna cotización o contratar algún servicio, puede contactarnos:
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <a href="#" class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-2xl p-8 block">
+            <div class="flex flex-col items-center">
+              <div class="text-3xl mb-4"> <!-- Reducido de text-4xl a text-3xl -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="url(#a)" width="40" height="40"> <!-- Añadido width y height -->
+                  <defs>
+                    <linearGradient x1="50%" x2="50%" y1="97.078%" y2="0%" id="a">
+                      <stop offset="0%" stop-color="#0062E0"/>
+                      <stop offset="100%" stop-color="#19AFFF"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M15 35.8C6.5 34.3 0 26.9 0 18 0 8.1 8.1 0 18 0s18 8.1 18 18c0 8.9-6.5 16.3-15 17.8l-1-.8h-4l-1 .8z"/>
+                  <path fill="#FFF" d="m25 23 .8-5H21v-3.5c0-1.4.5-2.5 2.7-2.5H26V7.4c-1.3-.2-2.7-.4-4-.4-4.1 0-7 2.5-7 7v4h-4.5v5H15v12.7c1 .2 2 .3 3 .3s2-.1 3-.3V23h4z"/>
+                </svg>
+              </div>
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-2">Facebook</h3>
+            <!-- <p class="text-blue-200">Envía mensaje a TEYCO</p> -->
+          </a>
+            <a href="https://wa.me/526241362782?text=Hola,%20estoy%20interesado%20en%20sus%20servicios" 
+              class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 transition-all duration-300 rounded-2xl p-8 block">
+              <div class="flex flex-col items-center">
+                <div class="text-3xl mb-4"> <!-- Reducido de text-4xl a text-3xl -->
+                  <svg viewBox="0 0 256 259" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="40" height="40"> <!-- Añadido width y height -->
+                    <path d="m67.663 221.823 4.185 2.093c17.44 10.463 36.971 15.346 56.503 15.346 61.385 0 111.609-50.224 111.609-111.609 0-29.297-11.859-57.897-32.785-78.824-20.927-20.927-48.83-32.785-78.824-32.785-61.385 0-111.61 50.224-110.912 112.307 0 20.926 6.278 41.156 16.741 58.594l2.79 4.186-11.16 41.156 41.853-10.464Z" fill="#00E676"/>
+                    <path d="M219.033 37.668C195.316 13.254 162.531 0 129.048 0 57.898 0 .698 57.897 1.395 128.35c0 22.322 6.278 43.947 16.742 63.478L0 258.096l67.663-17.439c18.834 10.464 39.76 15.347 60.688 15.347 70.453 0 127.653-57.898 127.653-128.35 0-34.181-13.254-66.269-36.97-89.986ZM129.048 234.38c-18.834 0-37.668-4.882-53.712-14.648l-4.185-2.093-40.458 10.463 10.463-39.76-2.79-4.186C7.673 134.63 22.322 69.058 72.546 38.365c50.224-30.692 115.097-16.043 145.79 34.181 30.692 50.224 16.043 115.097-34.18 145.79-16.045 10.463-35.576 16.043-55.108 16.043Zm61.385-77.428-7.673-3.488s-11.16-4.883-18.136-8.371c-.698 0-1.395-.698-2.093-.698-2.093 0-3.488.698-4.883 1.396 0 0-.697.697-10.463 11.858-.698 1.395-2.093 2.093-3.488 2.093h-.698c-.697 0-2.092-.698-2.79-1.395l-3.488-1.395c-7.673-3.488-14.648-7.674-20.229-13.254-1.395-1.395-3.488-2.79-4.883-4.185-4.883-4.883-9.766-10.464-13.253-16.742l-.698-1.395c-.697-.698-.697-1.395-1.395-2.79 0-1.395 0-2.79.698-3.488 0 0 2.79-3.488 4.882-5.58 1.396-1.396 2.093-3.488 3.488-4.883 1.395-2.093 2.093-4.883 1.395-6.976-.697-3.488-9.068-22.322-11.16-26.507-1.396-2.093-2.79-2.79-4.883-3.488H83.01c-1.396 0-2.79.698-4.186.698l-.698.697c-1.395.698-2.79 2.093-4.185 2.79-1.395 1.396-2.093 2.79-3.488 4.186-4.883 6.278-7.673 13.951-7.673 21.624 0 5.58 1.395 11.161 3.488 16.044l.698 2.093c6.278 13.253 14.648 25.112 25.81 35.575l2.79 2.79c2.092 2.093 4.185 3.488 5.58 5.58 14.649 12.557 31.39 21.625 50.224 26.508 2.093.697 4.883.697 6.976 1.395h6.975c3.488 0 7.673-1.395 10.464-2.79 2.092-1.395 3.487-1.395 4.882-2.79l1.396-1.396c1.395-1.395 2.79-2.092 4.185-3.487 1.395-1.395 2.79-2.79 3.488-4.186 1.395-2.79 2.092-6.278 2.79-9.765v-4.883s-.698-.698-2.093-1.395Z" fill="#FFF"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Whatsapp</h3>
+              <!-- <p class="text-purple-200">Envía mensaje a +52 6241362782</p> -->
+            </a>
+          
+        </div>
+      </div>
+    </div>
+</section>
+<style>
+  /* Animaciones suaves */
+  .hover\:shadow-xl:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Gradientes personalizados si no tienes estas clases en tu Tailwind config */
+  .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  }
+</style>
