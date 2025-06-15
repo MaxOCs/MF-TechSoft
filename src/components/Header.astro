@@ -1,6 +1,7 @@
 ---
 // Header.astro
 import { Image } from 'astro:assets';
+import TeycoLogo from '../assets/images/LogoTeyco.png';
 
 interface Props {
   title?: string;
@@ -22,8 +23,12 @@ const navItems = [
     <div class="flex items-center justify-between">
       <!-- Logo and title -->
       <div class="flex items-center space-x-2">
+         <Image 
+          src={TeycoLogo} 
+          alt={title} 
+          class="h-15 w-20" 
+        />
         <div class="text-accent-400 text-3xl font-bold">
-          <span class="text-accent-300">{`</>`}</span>
           {title}
         </div>
       </div>
