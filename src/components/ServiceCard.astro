@@ -7,13 +7,13 @@ import { Image } from 'astro:assets';
 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col border border-gray-200">
   <!-- Imagen más grande y mejor presentada -->
   <!-- Imagen que abarca todo el fondo -->
-  <div class="h-48 bg-gradient-to-br from-primary-500 to-primary-600 relative overflow-hidden">
+  <div class="h-96 bg-gradient-to-br from-primary-500 to-primary-600 relative overflow-hidden">
     <Image 
       src={service.img} 
       alt={service.title} 
       class="w-full h-full object-cover opacity-90"
-      width={400}
-      height={192}
+      width={"400"}
+      height={"300"}
     />
     <!-- Overlay para mejor legibilidad si necesitas texto encima -->
     <div class="absolute inset-0 bg-primary-600/20"></div>

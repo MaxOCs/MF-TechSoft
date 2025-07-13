@@ -1,6 +1,10 @@
 ---
 // Proyectos.astro
 import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import presenciaImg from '../assets/images/presencia-web.png';
+import empresarialImg from '../assets/images/petology.jpeg';
+import prosuiteImg from './../assets/images/spa.webp';
 
 // Datos de proyectos de ejemplo
 const proyectos = [
@@ -101,15 +105,15 @@ const tecnologias = [...new Set(proyectos.flatMap(p => p.tecnologias))].sort();
       <div class="container mx-auto px-4">
         <div class="text-center max-w-4xl mx-auto">
           <h1 class="text-4xl md:text-6xl font-bold mb-6">
-            Nuestros <span class="text-accent-300">Proyectos</span>
+            Nuestros <span class="text-accent-300">Paquetes</span>
           </h1>
           <p class="text-xl md:text-2xl text-gray-200 mb-8">
             Descubre las soluciones tecnológicas que hemos desarrollado para transformar negocios y crear experiencias digitales excepcionales.
           </p>
           <div class="flex flex-wrap justify-center gap-4 text-sm">
-            <span class="bg-primary-700 px-4 py-2 rounded-full">+50 Proyectos Completados</span>
-            <span class="bg-primary-700 px-4 py-2 rounded-full">98% Satisfacción del Cliente</span>
-            <span class="bg-primary-700 px-4 py-2 rounded-full">5 Años de Experiencia</span>
+            <span class="bg-primary-700 px-4 py-2 rounded-full">+20 Proyectos Completados</span>
+            <span class="bg-primary-700 px-4 py-2 rounded-full">Satisfacción del Cliente</span>
+            <span class="bg-primary-700 px-4 py-2 rounded-full">+2 Años de Experiencia</span>
           </div>
         </div>
       </div>
@@ -281,6 +285,33 @@ const tecnologias = [...new Set(proyectos.flatMap(p => p.tecnologias))].sort();
             class="bg-transparent border-2 border-white hover:bg-white hover:text-primary-900 px-8 py-3 rounded-lg font-semibold transition duration-200"
           >
             Ver Servicios
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="paquetes" class="bg-gray-100 py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <!-- Encabezado -->
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+            Nuestros <span class="text-accent-500">Paquetes</span>
+          </h2>
+          <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+            Elige el paquete que mejor se adapte a las necesidades de tu negocio
+          </p>
+        </div>
+
+        <!-- Grid de Paquetes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {paquetes.map((service) => (
+            <ServiceCard service={service} />
+          ))}
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-16">
+          <a href="/contacto" class="bg-accent-500 hover:bg-accent-400 text-white px-8 py-3 rounded-lg text-lg font-medium transition duration-300 inline-block">
+            Solicitar Presupuesto
           </a>
         </div>
       </div>
