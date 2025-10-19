@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sobre Nosotros | Teyco">
+  <section class="bg-gray-100 py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <!-- Encabezado -->
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+          Sobre <span class="text-accent-500">Nosotros</span>
+        </h1>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+          Somos una empresa apasionada por la tecnología y el desarrollo de soluciones digitales que transforman negocios.
+        </p>
+      </div>
+
+      <!-- Contenido dividido -->
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <!-- Misión -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <h2 class="text-2xl font-semibold text-primary-800 mb-3">Nuestra Misión</h2>
+          <p class="text-gray-700">
+            Brindar soluciones tecnológicas innovadoras, accesibles y funcionales que impulsen a empresas y emprendedores a alcanzar su máximo potencial digital.
+          </p>
+        </div>
+
+        <!-- Visión -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <h2 class="text-2xl font-semibold text-primary-800 mb-3">Nuestra Visión</h2>
+          <p class="text-gray-700">
+            Ser una empresa líder e influyente en el sector tecnológico, reconocida por inspirar y potenciar a otras organizaciones a alcanzar sus objetivos a través de la innovación, el compromiso y la excelencia digital.
+          </p>
+        </div>
+      </div>
+
+      <!-- Valores -->
+      <div class="mt-16">
+        <h2 class="text-center text-2xl font-bold text-primary-800 mb-6">Nuestros Valores</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
+          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-lg font-semibold text-accent-500 mb-2">Innovación</h3>
+            <p class="text-gray-600">Nos mantenemos a la vanguardia con tecnologías modernas y soluciones creativas.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-lg font-semibold text-accent-500 mb-2">Compromiso</h3>
+            <p class="text-gray-600">Trabajamos con dedicación y responsabilidad para cada cliente y proyecto.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-lg font-semibold text-accent-500 mb-2">Calidad</h3>
+            <p class="text-gray-600">Entregamos productos y servicios que cumplen con altos estándares técnicos y de experiencia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

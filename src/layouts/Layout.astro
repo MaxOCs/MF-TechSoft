@@ -8,26 +8,43 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "MF-TECSOFT - Soluciones tecnológicas innovadoras" } = Astro.props;
+const {
+  title,
+  description = "TEYCO - Soluciones tecnológicas innovadoras en desarrollo web, mantenimiento y marketing digital.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="description" content={description} />
-	</head>
-	<body class="min-h-screen flex flex-col overflow-x-hidden">
-		<Header />
-		<main>
-			<slot />
-		</main>
-    	<Footer/>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="TEYCO" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="desarrollo web, mantenimiento de equipos, diseño web, SEO, tecnología, software, Teyco, soluciones digitales, marketing digital" />
+    
+    <!-- Open Graph (para compartir en redes) -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col overflow-x-hidden">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>

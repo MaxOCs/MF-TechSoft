@@ -1,59 +1,82 @@
 ---
 // Services.astro
-import Layout from '../layouts/Layout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import carouselImage2 from '../assets/images/carrusel-2.webp';
-import mantenimineto from '../assets/images/mantenimineto.webp';
-import carouselImage4 from '../assets/images/carrusel-4.webp';
+// import Layout from '../layouts/Layout.astro';
+import ServiceItem from '../components/ServiceItem.astro';
 
 const services = [
   {
+    id: 1,
     title: "Desarrollo Web",
-    description: "Creación de sitios web a medida con tecnologías modernas y responsive design.",
-    img: carouselImage4,
-    features: ["Landing Pages", "Sitios Corporativos", "Tiendas Online Ecommerce"]
+    subtitle: "Sitios web modernos y responsivos",
+    description: "Creamos sitios web a medida con las últimas tecnologías, optimizados para velocidad y conversión. Desde landing pages hasta aplicaciones web complejas.",
+    features: ["Landing Pages", "Sitios Corporativos", "Tiendas Online", "Aplicaciones Web"],
+    lottieUrl: "https://lottie.host/4f2e6350-1126-41ef-ad6c-798fff7270c1/RoASxoeNzX.lottie", // Tu URL de ejemplo
+    bgColor: "from-purple-50 to-blue-50"
   },
   {
-    title: "Mantenimiento",
-    description: "Soporte técnico especializado para equipos y redes empresariales.",
-    img: mantenimineto,
-    features: ["Preventivo", "Correctivo", "Actualizaciones"]
+    id: 2,
+    title: "Mantenimiento Técnico",
+    subtitle: "Soporte especializado 24/7",
+    description: "Mantenimiento preventivo y correctivo para equipos y redes empresariales. Garantizamos el funcionamiento óptimo de tu infraestructura tecnológica.",
+    features: ["Mantenimiento Preventivo", "Soporte Correctivo", "Actualizaciones", "Monitoreo Continuo"],
+    lottieUrl: "https://lottie.host/cdd24c72-b7ce-4615-9027-87151d35afca/y56fmwKUZr.lottie", // Reemplaza con tu URL
+    bgColor: "from-green-50 to-teal-50"
   },
   {
+    id: 3,
     title: "Marketing Digital",
-    description: "Estrategias digitales para aumentar tu presencia en línea.",
-    img: carouselImage2,
-    features: ["SEO", "Redes Sociales", "Publicidad Online"]
+    subtitle: "Estrategias que generan resultados",
+    description: "Desarrollamos estrategias digitales integrales para aumentar tu presencia online y generar más leads. Desde SEO hasta campañas publicitarias efectivas.",
+    features: ["SEO & SEM", "Redes Sociales", "Email Marketing", "Analytics & Reporting"],
+    lottieUrl: "https://lottie.host/be51facd-2f1a-4aa7-b1cc-a73c025f62c9/9KAKKwv89B.lottie", // Reemplaza con tu URL
+    bgColor: "from-orange-50 to-pink-50"
   }
 ];
 ---
-
-<!-- <Layout title="Nuestros Servicios | Teyco"> -->
-  <section id="servicios" class="bg-gray-100 py-16 md:py-24">
+  <section id="servicios" class="py-20 md:py-32">
     <div class="container mx-auto px-4">
-      <!-- Encabezado -->
-      <div class="text-center mb-12 md:mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
-          Nuestros <span class="text-accent-500">Servicios</span>
+      <!-- Header -->
+      <div class="text-center mb-20">
+        <!-- <div class="inline-block bg-accent-100 text-accent-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          NUESTROS SERVICIOS
+        </div> -->
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Desde la <span class="text-accent-500">idea</span> inicial hasta el producto <span class="text-accent-500">final</span>
         </h2>
-        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
-          Soluciones tecnológicas diseñadas para impulsar tu negocio en el mundo digital
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Tu sitio web se construye desde cero, pensado exclusivamente para tu marca y tus objetivos. Diseño personalizado, estructura optimizada, y desarrollo responsivo para una experiencia rápida, fluida y eficiente en todos los dispositivos.
         </p>
       </div>
 
-      <!-- Grid de Servicios -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service) => (
-          <ServiceCard service={service} />
+      <!-- Services List -->
+      <div class="space-y-12">
+        {services.map((service, index) => (
+          <ServiceItem service={service} isReversed={index % 2 === 1} />
         ))}
       </div>
 
-      <!-- CTA -->
-      <div class="text-center mt-16">
-        <a href="/contacto" class="bg-accent-500 hover:bg-accent-400 text-white px-8 py-3 rounded-lg text-lg font-medium transition duration-300 inline-block">
-          Solicitar Presupuesto
-        </a>
+      <!-- CTA Section -->
+      <div class="text-center mt-32">
+        <div class="bg-gradient-to-r from-accent-500 to-purple-600 rounded-2xl p-12 md:p-16 text-white">
+          <h3 class="text-3xl md:text-4xl font-bold mb-6">
+            ¿Listo para transformar tu negocio?
+          </h3>
+          <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Contáctanos y descubre cómo nuestras soluciones pueden llevar tu empresa al siguiente nivel
+          </p>
+          <a 
+            href="/contacto" 
+            class="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-xl text-lg font-semibold transition duration-300 inline-flex items-center gap-2 shadow-lg"
+          >
+            Solicitar Presupuesto
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
-<!-- </Layout> -->
+
+<!-- Script para cargar el Web Component de Lottie -->
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>

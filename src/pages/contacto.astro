@@ -136,7 +136,7 @@ import Layout from '../layouts/Layout.astro';
                             </svg>
                             <div>
                                 <h3 class="font-medium text-gray-900">Dirección</h3>
-                                <p class="text-gray-700">Calle Principal #123<br>Colonia Centro<br>La Paz, BCS, México</p>
+                                <p class="text-gray-700">Calle F.J.Mujica<br>Colonia Indeco<br>La Paz, BCS, México</p>
                             </div>
                         </div>
 
@@ -146,7 +146,8 @@ import Layout from '../layouts/Layout.astro';
                             </svg>
                             <div>
                                 <h3 class="font-medium text-gray-900">Teléfono</h3>
-                                <p class="text-gray-700">+52 (612) 123-4567</p>
+                                 <p class="text-gray-700">+52 (612) 132-4992</p>
+                                <p class="text-gray-700">+52 (624) 136-2782</p>
                             </div>
                         </div>
 
@@ -156,7 +157,7 @@ import Layout from '../layouts/Layout.astro';
                             </svg>
                             <div>
                                 <h3 class="font-medium text-gray-900">Email</h3>
-                                <p class="text-gray-700">contacto@teyco.com</p>
+                                <p class="text-gray-700">teyco.contacto@gmail.com</p>
                             </div>
                         </div>
 
@@ -207,7 +208,7 @@ import Layout from '../layouts/Layout.astro';
             const mensaje = formData.get('mensaje');
             
             // Crear enlace mailto
-            const mailtoLink = `mailto:contacto@teyco.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`)}`;
+            const mailtoLink = `mailto:teyco.contacto@gmail.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`)}`;
             
             // Abrir cliente de correo
             window.location.href = mailtoLink;

@@ -1,0 +1,181 @@
+---
+// ServiceItem.astro
+export interface Props {
+  service: {
+    id: number;
+    title: string;
+    subtitle: string;
+    description: string;
+    features: string[];
+    lottieUrl: string;
+    bgColor: string;
+  };
+  isReversed?: boolean;
+}
+
+const { service, isReversed = false } = Astro.props;
+---
+
+<div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isReversed ? 'lg:grid-flow-col-dense' : ''}`}>
+  <!-- Animation Container -->
+  <div class={`${isReversed ? 'lg:col-start-2' : ''} flex justify-center`}>
+    <div class={`rounded-3xl p-8 md:p-12  lottie-container`}>
+      <dotlottie-wc 
+        src={service.lottieUrl}
+        style="width: 320px; height: 320px;"
+        speed="1"
+        autoplay
+        loop
+        class="md:w-5/6 md:h-96"
+      ></dotlottie-wc>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class={`${isReversed ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+    <div class="space-y-6">
+      <!-- Badge -->
+      <!-- <div class="inline-block">
+        <span class="bg-accent-100 text-accent-600 px-4 py-2 rounded-full text-sm font-medium">
+          0{service.id}
+        </span>
+      </div> -->
+
+      <!-- Title -->
+      <div>
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+          {service.title}
+        </h3>
+        <p class="text-xl text-accent-500 font-medium">
+          {service.subtitle}
+        </p>
+      </div>
+
+      <!-- Description -->
+      <p class="text-lg text-gray-600 leading-relaxed">
+        {service.description}
+      </p>
+
+      <!-- Features -->
+      <div class="space-y-3">
+        {service.features.map((feature) => (
+          <div class="flex items-center gap-3">
+            <div class="w-2 h-2 bg-accent-500 rounded-full"></div>
+            <span class="text-gray-700 font-medium">{feature}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Learn More Button -->
+      <!-- <div class="pt-4">
+        <button class="group flex items-center gap-2 text-accent-600 hover:text-accent-700 font-semibold transition duration-300">
+          Conocer más
+          <svg 
+            class="w-5 h-5 transform group-hover:translate-x-1 transition duration-300" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- El Web Component dotlottie-wc maneja automáticamente la carga y reproducción -->
+ <style>
+    .lottie-container {
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.lottie-container:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.lottie-container:nth-child(even) {
+  animation-delay: -3s;
+}
+
+/* Estilos para el Web Component dotlottie-wc */
+dotlottie-wc {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive para dotlottie-wc */
+@media (max-width: 768px) {
+  dotlottie-wc {
+    width: 280px !important;
+    height: 280px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  dotlottie-wc {
+    width: 600px !important;
+    height: 500px !important;
+  }
+}
+
+/* Estado de loading mejorado */
+dotlottie-wc:not([loaded]) {
+  /* background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); */
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Mejoras visuales adicionales */
+.service-animation-wrapper {
+  position: relative;
+}
+
+.service-animation-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  /* background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent); */
+  border-radius: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.service-animation-wrapper:hover::before {
+  opacity: 1;
+}
+
+/* Efectos de hover mejorados para el contenedor del servicio */
+.service-item:hover .lottie-container {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.service-item:hover dotlottie-wc {
+  filter: brightness(1.1);
+}
+ </style>

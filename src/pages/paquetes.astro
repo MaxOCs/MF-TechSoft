@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
+import PaquetesItem from '../components/PaquetesItem.astro';
 import presenciaImg from '../assets/images/presencia-web.png';
 import empresarialImg from '../assets/images/petology.jpeg';
 import prosuiteImg from '../assets/images/spa.webp';
@@ -61,7 +61,7 @@ const paquetes = [
       <!-- Grid de Paquetes -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {paquetes.map((service) => (
-          <ServiceCard service={service} />
+          <PaquetesItem service={service} />
         ))}
       </div>
 
