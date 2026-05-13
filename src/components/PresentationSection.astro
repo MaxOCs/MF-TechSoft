@@ -1,5 +1,4 @@
 ---
-// PresentationSection.astro
 import { Image } from 'astro:assets';
 import carouselImage1 from '../assets/images/banner-3.png';
 import carouselImage2 from '../assets/images/banner-4.png';
@@ -7,178 +6,243 @@ import carouselImage3 from '../assets/images/carrusel-3.webp';
 import carouselImage4 from '../assets/images/carrusel-4.webp';
 
 const carouselItems = [
-  {
-    id: 1,
-    title: "Landing Page Corporativa",
-    description: "Diseño moderno y profesional para empresas",
-    image: carouselImage1,
-    alt: "Ejemplo de landing page corporativa"
-  },
-  {
-    id: 2,
-    title: "Plataforma E-commerce",
-    description: "Soluciones web para tiendas online",
-    image: carouselImage2,
-    alt: "Ejemplo de plataforma e-commerce"
-  },
-  {
-    id: 3,
-    title: "Dashboard Analytics",
-    description: "Interfaces de usuario para visualización de datos",
-    image:carouselImage3,
-    alt: "Ejemplo de dashboard analytics"
-  },
-  {
-    id: 4,
-    title: "App Web Responsiva",
-    description: "Aplicaciones web optimizadas para todos los dispositivos",
-    image: carouselImage4,
-    alt: "Ejemplo de app web responsiva"
-  }
+  { id: 1, title: "Landing Page Corporativa",  description: "Diseño moderno y profesional", image: carouselImage1, alt: "Landing page corporativa" },
+  { id: 2, title: "Plataforma E-commerce",      description: "Soluciones para tiendas online", image: carouselImage2, alt: "Plataforma e-commerce" },
+  { id: 3, title: "Dashboard Analytics",        description: "Visualización de datos empresariales", image: carouselImage3, alt: "Dashboard analytics" },
+  { id: 4, title: "App Web Responsiva",         description: "Optimizada para todos los dispositivos", image: carouselImage4, alt: "App web responsiva" },
+];
+
+const stats = [
+  { number: "50+",  label: "Proyectos" },
+  { number: "5+",   label: "Años activos" },
+  { number: "100%", label: "Satisfacción" },
 ];
 ---
 
-<section class="bg-gradient-to-b from-primary-900 to-gray-100 text-white py-16 md:py-24">
-  <div class="container mx-auto px-4">
-    <!-- Texto principal centrado -->
-    <div class="text-center mb-16">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">
-        Soluciones Digitales <span class="text-accent-300">Innovadoras</span>
-      </h1>
-      <p class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
-        Expertos en desarrollo web, redes y manetenimiento de equipos para transformar tu visión en realidad digital.
-      </p>
-      <div class="mt-8">
-        <a href="/contacto" class="bg-accent-500 hover:bg-accent-400 text-white px-8 py-3 rounded-lg text-lg font-medium transition duration-300 inline-block mr-4">
-          Contáctanos
-        </a>
-        <a href="/servicios" class="border-2 border-white hover:border-accent-300 hover:text-accent-300 px-8 py-3 rounded-lg text-lg font-medium transition duration-300 inline-block">
-          Conoce más
-        </a>
-      </div>
-    </div>
+<section class="relative overflow-hidden bg-primary-900">
 
-    <!-- Carrusel de imágenes -->
-    
-    <div class="relative w-full">
-      <!-- Carrusel -->
-      <div class="overflow-hidden w-full">
-        <div id="carousel" class="carousel-items flex transition-transform duration-500 ease-in-out">
-          {carouselItems.map((item) => (
-            <div class="carousel-slide w-full flex-shrink-0 px-4" id={`slide-${item.id}`}>
-              <div class="bg-primary-800 rounded-xl overflow-hidden shadow-xl">
-                <div class="relative h-64 md:h-96">
-                  <Image 
-                      src={item.image} 
-                      alt={item.alt}
-                      class="w-full h-full object-cover"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-primary-900 to-transparent opacity-70"></div>
-                  <div class="absolute bottom-0 left-0 p-6">
-                    <h3 class="text-xl md:text-2xl font-bold">{item.title}</h3>
-                    <p class="text-gray-200">{item.description}</p>
-                  </div>
-                </div>
-              </div>
+  <!-- Dot-grid texture -->
+  <div class="hero-grid absolute inset-0 opacity-[0.18] pointer-events-none"></div>
+
+  <!-- Accent glow — top left -->
+  <div class="absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full bg-accent-500 opacity-[0.05] blur-[140px] pointer-events-none"></div>
+
+  <!-- Secondary glow — mid right -->
+  <div class="absolute top-1/2 -right-24 w-[420px] h-[420px] rounded-full bg-primary-500 opacity-[0.07] blur-[100px] pointer-events-none"></div>
+
+  <div class="relative z-10 container mx-auto px-6 lg:px-10 pt-20 pb-32 lg:pt-28 lg:pb-44">
+    <div class="grid lg:grid-cols-[1fr_1.05fr] gap-14 lg:gap-20 items-center">
+
+      <!-- ── TEXT COLUMN ── -->
+      <div class="flex flex-col gap-6">
+
+        <!-- Status badge -->
+        <div class="hero-badge inline-flex items-center gap-2.5 self-start border border-accent-500/30 bg-accent-500/10 text-accent-300 px-4 py-2 rounded-full text-sm font-semibold tracking-wide">
+          <span class="w-2 h-2 rounded-full bg-accent-400 animate-pulse"></span>
+          Disponible para nuevos proyectos
+        </div>
+
+        <!-- H1 — fluid type, tight leading -->
+        <h1 class="hero-h1 font-black leading-[0.93] tracking-tight" style="font-size: clamp(2.75rem, 8vw, 6.25rem);">
+          <span class="text-white">Soluciones</span><br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-300">Digitales</span><br>
+          <span class="text-white">para tu</span><br>
+          <span class="text-white/30">negocio.</span>
+        </h1>
+
+        <!-- Accent rule -->
+        <div class="hero-rule w-14 h-[3px] rounded-full bg-gradient-to-r from-accent-500 to-transparent"></div>
+
+        <!-- Subtitle -->
+        <p class="hero-sub text-base lg:text-lg text-gray-400 max-w-[420px] leading-relaxed">
+          Expertos en desarrollo web, redes y mantenimiento de equipos. Transformamos tu visión en soluciones digitales reales.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas flex flex-wrap gap-3">
+          <a href="/contacto" class="
+            inline-flex items-center gap-2 px-7 py-3.5
+            bg-accent-500 hover:bg-accent-400
+            text-primary-900 font-bold text-sm rounded-full
+            transition-all duration-300
+            shadow-[0_0_28px_rgba(0,188,212,0.38)]
+            hover:shadow-[0_0_50px_rgba(0,188,212,0.58)]
+            hover:-translate-y-px
+          ">
+            Solicitar Proyecto
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+
+          <a href="/servicios" class="
+            inline-flex items-center gap-2 px-7 py-3.5
+            border border-white/15 hover:border-accent-500/40
+            text-white/60 hover:text-accent-300
+            font-semibold text-sm rounded-full
+            transition-all duration-300 hover:bg-white/5
+          ">
+            Ver Servicios
+          </a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="hero-stats flex gap-8 pt-5 border-t border-white/[0.08]">
+          {stats.map(stat => (
+            <div>
+              <div class="text-2xl lg:text-3xl font-black text-accent-400 tabular-nums">{stat.number}</div>
+              <div class="text-[11px] font-semibold text-gray-500 tracking-wide mt-0.5 uppercase">{stat.label}</div>
             </div>
           ))}
         </div>
-      </div>
-      <!-- Controles del carrusel -->
-      <button id="prevButton" class="absolute left-5 top-1/2 transform -translate-y-1/2 bg-primary-800 bg-opacity-70 hover:bg-primary-700 text-white p-2 rounded-full z-10">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button id="nextButton" class="absolute right-5 top-1/2 transform -translate-y-1/2 bg-primary-800 bg-opacity-70 hover:bg-primary-700 text-white p-2 rounded-full z-10">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
 
-      <!-- Indicadores de diapositivas -->
-      <div class="carousel-indicators flex justify-center mt-6 space-x-2">
-        {carouselItems.map((item, index) => (
-          <button 
-            class="indicator w-3 h-3 rounded-full bg-gray-400 hover:bg-accent-400 transition-colors" 
-            data-slide={index}
-            aria-label={`Ir a slide ${index + 1}`}
-          ></button>
-        ))}
       </div>
+
+      <!-- ── CAROUSEL COLUMN ── -->
+      <div class="hero-visual relative">
+
+        <!-- Ambient glow behind card -->
+        <div class="absolute -inset-6 rounded-3xl bg-accent-500/[0.07] blur-2xl -z-10"></div>
+
+        <!-- Carousel card -->
+        <div class="relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+
+          <div id="carousel" class="flex" style="transition: transform 0.7s cubic-bezier(0.65,0,0.35,1);">
+            {carouselItems.map(item => (
+              <div class="carousel-slide w-full flex-shrink-0">
+                <div class="relative h-56 md:h-72 lg:h-[430px]">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    class="w-full h-full object-cover"
+                  />
+                  <!-- Gradient overlay -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-primary-900/95 via-primary-900/20 to-transparent"></div>
+                  <!-- Label -->
+                  <div class="absolute bottom-0 left-0 p-5 lg:p-7">
+                    <p class="text-accent-400 text-[10px] font-bold tracking-[0.18em] uppercase mb-1.5">{item.description}</p>
+                    <h3 class="text-white font-bold text-base lg:text-xl leading-snug">{item.title}</h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Prev arrow -->
+          <button id="prevButton" aria-label="Anterior" class="
+            absolute left-3 top-1/2 -translate-y-1/2 z-10
+            w-8 h-8 flex items-center justify-center rounded-full
+            bg-black/50 hover:bg-accent-500 text-white
+            transition-all duration-200 backdrop-blur-sm
+          ">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+
+          <!-- Next arrow -->
+          <button id="nextButton" aria-label="Siguiente" class="
+            absolute right-3 top-1/2 -translate-y-1/2 z-10
+            w-8 h-8 flex items-center justify-center rounded-full
+            bg-black/50 hover:bg-accent-500 text-white
+            transition-all duration-200 backdrop-blur-sm
+          ">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <!-- Dots -->
+          <div class="absolute bottom-4 right-4 flex gap-2 z-10">
+            {carouselItems.map((_, i) => (
+              <button
+                class="indicator h-1.5 w-1.5 rounded-full transition-all duration-300"
+                style="background-color: rgba(255,255,255,0.3);"
+                data-slide={i}
+                aria-label={`Ir a slide ${i + 1}`}
+              ></button>
+            ))}
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   </div>
+
+  <!-- Angled bottom divider — white triangle -->
+  <div class="absolute bottom-0 left-0 right-0 pointer-events-none" style="height:80px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" preserveAspectRatio="none" class="w-full h-full">
+      <polygon points="0,1 1,0 1,1" fill="white"/>
+    </svg>
+  </div>
+
 </section>
 
+<style>
+  /* Dot-grid texture */
+  .hero-grid {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Staggered entry animations — runs once on load */
+  .hero-badge,
+  .hero-h1,
+  .hero-rule,
+  .hero-sub,
+  .hero-ctas,
+  .hero-stats,
+  .hero-visual {
+    opacity: 0;
+    animation: heroFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .hero-badge  { animation-delay: 0.08s; }
+  .hero-h1     { animation-delay: 0.18s; }
+  .hero-rule   { animation-delay: 0.26s; }
+  .hero-sub    { animation-delay: 0.32s; }
+  .hero-ctas   { animation-delay: 0.40s; }
+  .hero-stats  { animation-delay: 0.48s; }
+  .hero-visual { animation-delay: 0.22s; }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+</style>
+
 <script>
-  // Script para controlar el carrusel
-  document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.getElementById('carousel');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    const prevButton = document.getElementById('prevButton');
-    const nextButton = document.getElementById('nextButton');
-    
-    const slideCount = slides.length;
-    let currentSlide = 0;
+  const carousel   = document.getElementById('carousel');
+  const slides     = document.querySelectorAll('.carousel-slide');
+  const indicators = document.querySelectorAll('.indicator');
+  const total      = slides.length;
+  let   current    = 0;
 
-    // Configuración inicial
-    updateCarousel();
-    updateIndicators();
+  function goTo(index) {
+    current = ((index % total) + total) % total;
 
-    // Botón anterior
-    prevButton?.addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-      updateCarousel();
-      updateIndicators();
-    });
-
-    // Botón siguiente
-    nextButton?.addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % slideCount;
-      updateCarousel();
-      updateIndicators();
-    });
-
-    // Controladores de indicadores
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        currentSlide = index;
-        updateCarousel();
-        updateIndicators();
-      });
-    });
-
-    // Actualizar la posición del carrusel
-    function updateCarousel() {
-      if (carousel) {
-        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-      }
+    if (carousel) {
+      carousel.style.transform = `translateX(-${current * 100}%)`;
     }
 
-    // Actualizar indicadores activos
-    function updateIndicators() {
-      indicators.forEach((indicator, index) => {
-        if (index === currentSlide) {
-          indicator.classList.add('bg-accent-500');
-          indicator.classList.remove('bg-gray-400');
-        } else {
-          indicator.classList.add('bg-gray-400');
-          indicator.classList.remove('bg-accent-500');
-        }
-      });
-    }
-
-    // Auto rotación (opcional)
-    const autoRotate = setInterval(() => {
-      currentSlide = (currentSlide + 1) % slideCount;
-      updateCarousel();
-      updateIndicators();
-    }, 5000); // Cambiar cada 5 segundos
-
-    // Detener rotación al interactuar
-    document.querySelector('.carousel-container')?.addEventListener('mouseenter', () => {
-      clearInterval(autoRotate);
+    indicators.forEach((dot, i) => {
+      const active = i === current;
+      dot.style.width           = active ? '20px' : '6px';
+      dot.style.backgroundColor = active ? '#26C6DA' : 'rgba(255,255,255,0.3)';
     });
+  }
+
+  document.getElementById('prevButton')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('nextButton')?.addEventListener('click', () => goTo(current + 1));
+  indicators.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  goTo(0);
+
+  let timer = setInterval(() => goTo(current + 1), 5000);
+  carousel?.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel?.addEventListener('mouseleave', () => {
+    timer = setInterval(() => goTo(current + 1), 5000);
   });
 </script>
